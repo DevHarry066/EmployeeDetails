@@ -6,23 +6,26 @@ namespace EmployeeDetails
 {
     class Program
     {
+        public enum EmployeeType
+        {
+            Permanent,
+            Temprory,
+            SalaryBasis
+        }
         static void Main(string[] args)
         {
-           //int ch;
+            int ch;
+            Employee e = new Employee();
+            EmployeeDerived ed = new EmployeeDerived();
             Console.WriteLine("Hello");
-            while (true)
+            do
             {
-
-
-                Employee e = new Employee();
-                EmployeeDerived ed = new EmployeeDerived();
-                
-                Console.WriteLine("Enter 1 for Add Employee");
+                Console.WriteLine("\nEnter 1 for Add Employee");
                 Console.WriteLine("Enter 2 for Get Employee Details");
                 Console.WriteLine("Enter 3 for Get an Employee by Id");
                 Console.WriteLine("Enter 4 to update an Employee");
                 Console.WriteLine("Enter 5 to delete an Employee");
-                Console.WriteLine("Press enter or 0 to Exit");
+                Console.WriteLine("Press enter or 0 to Exit\n");
 
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
@@ -39,11 +42,10 @@ namespace EmployeeDetails
                         Console.WriteLine("Enter Department Name");
                         string depName = Console.ReadLine();
                         decimal experience = (DateTime.Now - dateOfJoining).Days / 365;
-                        Employee e1=new Employee(Eid,name,dateOfJoining,salary,depName,experience);
-                        
+                        Employee e1 = new Employee(Eid, name, dateOfJoining, salary, depName, experience);
 
                         Employee er = ed.Add(e1);
-                        Console.WriteLine("Employee Id is " + er.EmployeeId);
+                        Console.WriteLine("\nEmployee Id is " + er.EmployeeId);
                         Console.WriteLine("Employee Name is " + er.Name);
                         Console.WriteLine("Employee Date of Joining is " + er.DateOfJoining);
                         Console.WriteLine("Employee Salary is " + er.Salary);
@@ -53,10 +55,10 @@ namespace EmployeeDetails
 
                     case 2:
                         var employees = ed.GetEmployees();
-                        Console.WriteLine("Here");
+                        Console.WriteLine("Available Employee Details");
                         foreach (var employee in employees)
                         {
-                            Console.WriteLine("Hello");
+                            Console.WriteLine();
                             Console.WriteLine("Employee Id is " + employee.EmployeeId);
                             Console.WriteLine("Employee Name is " + employee.Name);
                             Console.WriteLine("Employee Date of Joining is " + employee.DateOfJoining);
@@ -65,24 +67,23 @@ namespace EmployeeDetails
                             Console.WriteLine("Employee Experinece is " + employee.Experience);
 
                         }
-
                         break;
 
                     case 3:
                         Console.WriteLine("Enter id to get info about Employee");
                         int id = Convert.ToInt32(Console.ReadLine());
-                        var ee=ed.GetEmployeeById(id);
-                        Console.WriteLine("Employee Id is " + ee.EmployeeId);
+                        var ee = ed.GetEmployeeById(id);
+                        Console.WriteLine("\nEmployee Id is " + ee.EmployeeId);
                         Console.WriteLine("Employee Name is " + ee.Name);
                         Console.WriteLine("Employee Date of Joining is " + ee.DateOfJoining);
                         Console.WriteLine("Employee Salary is " + ee.Salary);
                         Console.WriteLine("Employee Department Name is " + ee.DepartmentName);
                         Console.WriteLine("Employee Experinece is " + ee.Experience);
                         break;
-                        
+
                     case 4:
                         Console.WriteLine("Enter info about Employee to update");
-                        Console.WriteLine("Enter Employee Id");
+                        Console.WriteLine("\nEnter Employee Id");
                         e.EmployeeId = Convert.ToInt32(Console.ReadLine());
                         Console.WriteLine("Enter Employee Name");
                         e.Name = Console.ReadLine();
@@ -96,41 +97,37 @@ namespace EmployeeDetails
                         decimal experience1 = (DateTime.Now - e.DateOfJoining).Days / 365;
                         e.Experience = experience1;
 
-                        Console.WriteLine("Enter Employee Id you want to update");
+                        Console.WriteLine("\nEnter Employee Id you want to update");
                         int id1 = Convert.ToInt32(Console.ReadLine());
-                        var ee1=ed.UpdateEmployee(e,id1);
-                        Console.WriteLine("Employee Id is " + ee1.EmployeeId);
+                        var ee1 = ed.UpdateEmployee(e, id1);
+                        Console.WriteLine("\nEmployee Id is " + ee1.EmployeeId);
                         Console.WriteLine("Employee Name is " + ee1.Name);
                         Console.WriteLine("Employee Date of Joining is " + ee1.DateOfJoining);
                         Console.WriteLine("Employee Salary is " + ee1.Salary);
                         Console.WriteLine("Employee Department Name is " + ee1.DepartmentName);
                         Console.WriteLine("Employee Experinece is " + ee1.Experience);
-
-
-
                         break;
+
                     case 5:
-                        Console.WriteLine("Enter id of Employee you want to delete: ");
+                        Console.WriteLine("\nEnter id of Employee you want to delete: ");
                         int id2 = Convert.ToInt32(Console.ReadLine());
-                        var ee2=ed.DeleteEmployee(id2);
-                        Console.WriteLine("Employee Id is " + ee2.EmployeeId);
+                        var ee2 = ed.DeleteEmployee(id2);
+                        Console.WriteLine("\nEmployee Id is " + ee2.EmployeeId);
                         Console.WriteLine("Employee Name is " + ee2.Name);
                         Console.WriteLine("Employee Date of Joining is " + ee2.DateOfJoining);
                         Console.WriteLine("Employee Salary is " + ee2.Salary);
                         Console.WriteLine("Employee Department Name is " + ee2.DepartmentName);
                         Console.WriteLine("Employee Experinece is " + ee2.Experience);
                         break;
-                        
+
                     default:
                         Console.WriteLine("Enter correct choice please\n");
                         break;
-
                 }
-
-                //Console.WriteLine("Do you want to continue");
-                //ch = Convert.ToInt32(Console.ReadLine());
-
+                Console.WriteLine("Press 0 to exit");
+                ch=Convert.ToInt32(Console.ReadLine());
             }
+            while (ch!=0);
         }
 
     }
