@@ -12,7 +12,6 @@ namespace EmployeeDetails
         public int EmployeeId { get; set; }
         public string Name { get; set; }
         public DateTime DateOfJoining { get; set; }
-
         public double Salary { get; set; }
         public string DepartmentName { get; set; }
         public decimal Experience { get; set; }
