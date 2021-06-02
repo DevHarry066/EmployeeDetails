@@ -28,7 +28,7 @@ namespace EmployeeDetails
             decimal experience = (DateTime.Now - dateOfJoining).Days / 365;
             //e.Experience = experience;
 
-            Employee e1 = new Employee(Eid, name, dateOfJoining, salary, depName, experience);
+            //Employee e1 = new Employee(Eid, name, dateOfJoining, salary, depName, experience);
             //e1.El.Add(e1);
         }
 

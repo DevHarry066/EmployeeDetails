@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static EmployeeDetails.Program;
 
 namespace EmployeeDetails
 {
@@ -16,19 +17,21 @@ namespace EmployeeDetails
         public string DepartmentName { get; set; }
         public decimal Experience { get; set; }
 
-        public List<Employee> list11 = new List<Employee>();
+        public EmployeeType EmployeeType { get; set; }
+        //public List<Employee> list11 = new List<Employee>();
 
         public Employee()
         {
 
         }
-        public Employee(int eid, string name, DateTime dateOfJoining, double salary, string departmentName, decimal experience)
+        public Employee(int eid, string name, DateTime dateOfJoining, double salary, string departmentName, EmployeeType employeeType, decimal experience)
         {
             this.EmployeeId = eid;
             this.Name = name;
             this.DateOfJoining = dateOfJoining;
             this.Salary = salary;
             this.DepartmentName = departmentName;
+            this.EmployeeType = employeeType;
             this.Experience = experience;
         }
 

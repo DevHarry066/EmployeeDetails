@@ -18,8 +18,9 @@ namespace EmployeeDetails
             DateTime d = e.DateOfJoining;
             double s = e.Salary;
             string dept = e.DepartmentName;
-            decimal ex = e.Experience;             
-            list.Add(new Employee{ EmployeeId=id, Name=name, DateOfJoining=d, Salary=s, DepartmentName=dept, Experience=ex });
+            decimal ex = e.Experience;
+            EmployeeType et = e.EmployeeType;
+            list.Add(new Employee{ EmployeeId=id, Name=name, DateOfJoining=d, Salary=s, DepartmentName=dept, EmployeeType=et, Experience=ex });
             
             //list.Add(e);
             
@@ -53,6 +54,7 @@ namespace EmployeeDetails
             e.DateOfJoining = e1.DateOfJoining;
             e.Salary = e1.Salary;
             e.DepartmentName = e1.DepartmentName;
+            e.EmployeeType = e1.EmployeeType;
             e.Experience = e1.Experience;
 
             Console.WriteLine("Updated Employee ");

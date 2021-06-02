@@ -4,14 +4,16 @@ using System.Globalization;
 
 namespace EmployeeDetails
 {
+
+    public enum EmployeeType
+    {
+        Permanent,
+        Temprory,
+        SalaryBasis
+    }
+
     class Program
     {
-        public enum EmployeeType
-        {
-            Permanent,
-            Temprory,
-            SalaryBasis
-        }
         static void Main(string[] args)
         {
             int ch;
@@ -41,8 +43,9 @@ namespace EmployeeDetails
                         double salary = Convert.ToInt64(Console.ReadLine());
                         Console.WriteLine("Enter Department Name");
                         string depName = Console.ReadLine();
+                        var empType = EmployeeType.Permanent;
                         decimal experience = (DateTime.Now - dateOfJoining).Days / 365;
-                        Employee e1 = new Employee(Eid, name, dateOfJoining, salary, depName, experience);
+                        Employee e1 = new Employee(Eid, name, dateOfJoining, salary, depName,empType, experience);
 
                         Employee er = ed.Add(e1);
                         Console.WriteLine("\nEmployee Id is " + er.EmployeeId);
@@ -50,6 +53,7 @@ namespace EmployeeDetails
                         Console.WriteLine("Employee Date of Joining is " + er.DateOfJoining);
                         Console.WriteLine("Employee Salary is " + er.Salary);
                         Console.WriteLine("Employee Department Name is " + er.DepartmentName);
+                        Console.WriteLine("Employee Type is "+er.EmployeeType);
                         Console.WriteLine("Employee Experinece is " + er.Experience);
                         break;
 
@@ -64,6 +68,7 @@ namespace EmployeeDetails
                             Console.WriteLine("Employee Date of Joining is " + employee.DateOfJoining);
                             Console.WriteLine("Employee Salary is " + employee.Salary);
                             Console.WriteLine("Employee Department Name is " + employee.DepartmentName);
+                            Console.WriteLine("Employee Type is "+employee.EmployeeType);
                             Console.WriteLine("Employee Experinece is " + employee.Experience);
 
                         }
@@ -78,6 +83,7 @@ namespace EmployeeDetails
                         Console.WriteLine("Employee Date of Joining is " + ee.DateOfJoining);
                         Console.WriteLine("Employee Salary is " + ee.Salary);
                         Console.WriteLine("Employee Department Name is " + ee.DepartmentName);
+                        Console.WriteLine("Employee Type is "+ee.EmployeeType);
                         Console.WriteLine("Employee Experinece is " + ee.Experience);
                         break;
 
@@ -93,7 +99,7 @@ namespace EmployeeDetails
                         e.Salary = Convert.ToInt32(Console.ReadLine());
                         Console.WriteLine("Enter Department Name");
                         e.DepartmentName = Console.ReadLine();
-
+                        e.EmployeeType = EmployeeType.SalaryBasis;
                         decimal experience1 = (DateTime.Now - e.DateOfJoining).Days / 365;
                         e.Experience = experience1;
 
@@ -105,6 +111,7 @@ namespace EmployeeDetails
                         Console.WriteLine("Employee Date of Joining is " + ee1.DateOfJoining);
                         Console.WriteLine("Employee Salary is " + ee1.Salary);
                         Console.WriteLine("Employee Department Name is " + ee1.DepartmentName);
+                        Console.WriteLine("Employee Type is "+ee1.EmployeeType);
                         Console.WriteLine("Employee Experinece is " + ee1.Experience);
                         break;
 
@@ -117,6 +124,7 @@ namespace EmployeeDetails
                         Console.WriteLine("Employee Date of Joining is " + ee2.DateOfJoining);
                         Console.WriteLine("Employee Salary is " + ee2.Salary);
                         Console.WriteLine("Employee Department Name is " + ee2.DepartmentName);
+                        Console.WriteLine("Employee Type is "+ee2.EmployeeType);
                         Console.WriteLine("Employee Experinece is " + ee2.Experience);
                         break;
 
