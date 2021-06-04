@@ -18,7 +18,7 @@ namespace EmployeeDetails
                 {
                     if (employee.EmployeeId == id)
                     {
-                        Console.WriteLine("Entered id is present in list");
+                        Console.WriteLine("Entered id is present in list so it's not get added\n\nThe Details you entered are ");
                     return e;
                     }
                 }
