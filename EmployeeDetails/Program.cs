@@ -45,7 +45,7 @@ namespace EmployeeDetails
                         string depName = Console.ReadLine();
                         var empType = EmployeeType.Permanent;
                         decimal experience = (DateTime.Now - dateOfJoining).Days / 365;
-                        if (experience < 0)
+                        if (dateOfJoining>DateTime.Now)
                         {
                             Console.WriteLine("Enter valid Date of Joining");
                             break;
@@ -70,7 +70,6 @@ namespace EmployeeDetails
 
                         else
                         {
-                            Console.WriteLine("Available Employee Details");
                             foreach (var employee in employees)
                             {
                                 Console.WriteLine();
@@ -116,7 +115,7 @@ namespace EmployeeDetails
                         e.DepartmentName = Console.ReadLine();
                         e.EmployeeType = EmployeeType.SalaryBasis;
                         decimal experience1 = (DateTime.Now - e.DateOfJoining).Days / 365;
-                        if (experience1 < 0)
+                        if (e.DateOfJoining > DateTime.Now)
                         {
                             Console.WriteLine("Enter valid Date of Joining");
                             break;
@@ -164,7 +163,7 @@ namespace EmployeeDetails
                         break;
                 }
 
-                Console.WriteLine("\nPress 0 to exit");
+                Console.WriteLine("\nPress 1 to continue & 0 to exit");
                 ch=Convert.ToInt32(Console.ReadLine());
             }
             while (ch!=0);
