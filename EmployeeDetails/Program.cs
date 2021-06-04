@@ -27,9 +27,10 @@ namespace EmployeeDetails
                 Console.WriteLine("Enter 3 for Get an Employee by Id");
                 Console.WriteLine("Enter 4 to update an Employee");
                 Console.WriteLine("Enter 5 to delete an Employee");
-                Console.WriteLine("Press enter or 0 to Exit\n");
+                Console.WriteLine("Press 0 to Exit");
 
                 int choice = Convert.ToInt32(Console.ReadLine());
+                if (choice == 0) break;
                 switch (choice)
                 {
                     case 1:
@@ -158,13 +159,14 @@ namespace EmployeeDetails
                         }
                         break;
 
-                    default:
-                        Console.WriteLine("Enter correct choice please\n");
-                        break;
-                }
+                    }
 
-                Console.WriteLine("\nPress 1 to continue & 0 to exit");
-                ch=Convert.ToInt32(Console.ReadLine());
+                do
+                {
+                    Console.WriteLine("\nPress 1 to continue & 0 to exit");
+                    ch = Convert.ToInt32(Console.ReadLine());
+                }
+                while (ch != 1 && ch != 0);
             }
             while (ch!=0);
         }
