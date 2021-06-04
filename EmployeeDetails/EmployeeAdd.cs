@@ -8,6 +8,7 @@ namespace EmployeeDetails
 {
     class EmployeeAdd
     {
+        /*
         public List<Employee> el = new List<Employee>();
         public List<Employee> El { get => el; set => el = value; }
 
@@ -38,5 +39,6 @@ namespace EmployeeDetails
             //e.El.ForEach(Console.WriteLine);
 
         }
+        */
     }
 }

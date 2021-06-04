@@ -14,6 +14,14 @@ namespace EmployeeDetails
         {
             
             int id = e.EmployeeId;
+            foreach (var employee in list)
+                {
+                    if (employee.EmployeeId == id)
+                    {
+                        Console.WriteLine("Entered id is present in list");
+                    return e;
+                    }
+                }
             string name = e.Name;
             DateTime d = e.DateOfJoining;
             double s = e.Salary;
@@ -21,9 +29,6 @@ namespace EmployeeDetails
             decimal ex = e.Experience;
             EmployeeType et = e.EmployeeType;
             list.Add(new Employee{ EmployeeId=id, Name=name, DateOfJoining=d, Salary=s, DepartmentName=dept, EmployeeType=et, Experience=ex });
-            
-            //list.Add(e);
-            
             Console.WriteLine("\nEmployee details added");
             return e;
         }
@@ -31,6 +36,7 @@ namespace EmployeeDetails
         public List<Employee> GetEmployees()
         {
             Console.WriteLine("Hii");
+            if (list.Count == 0) Console.WriteLine("List is empty");
             return list;
         }
 
@@ -41,6 +47,7 @@ namespace EmployeeDetails
             if (e == null)
             {
                 Console.WriteLine("Null");
+                return null;
             }
             Console.WriteLine("Employee Id is " + e.EmployeeId);
             return e;
@@ -49,6 +56,10 @@ namespace EmployeeDetails
         public Employee UpdateEmployee(Employee e1, int id)
         {
             var e = list.Find(u => u.EmployeeId == id);
+            if(e==null)
+            {
+                return null;
+            }
             e.EmployeeId = e1.EmployeeId;
             e.Name = e1.Name;
             e.DateOfJoining = e1.DateOfJoining;
@@ -64,6 +75,7 @@ namespace EmployeeDetails
         public Employee DeleteEmployee(int id)
         {
             var e = list.Find(u => u.EmployeeId == id);
+            if (e == null) return null;
             list.Remove(e);
             Console.WriteLine("Employee with " + id + " is deleted");
             return e;
