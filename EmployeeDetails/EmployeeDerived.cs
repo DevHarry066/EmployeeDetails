@@ -35,18 +35,15 @@ namespace EmployeeDetails
 
         public List<Employee> GetEmployees()
         {
-            Console.WriteLine("Hii");
             if (list.Count == 0) Console.WriteLine("List is empty");
             return list;
         }
 
         public Employee GetEmployeeById(int id)
         {
-            Console.WriteLine("cw");
             var e = list.Find(u => u.EmployeeId == id);
             if (e == null)
             {
-                Console.WriteLine("Null");
                 return null;
             }
             Console.WriteLine("Employee Id is " + e.EmployeeId);
@@ -77,7 +74,7 @@ namespace EmployeeDetails
             var e = list.Find(u => u.EmployeeId == id);
             if (e == null) return null;
             list.Remove(e);
-            Console.WriteLine("Employee with " + id + " is deleted");
+            Console.WriteLine("Employee with id " + id + " is deleted");
             return e;
         }
 
